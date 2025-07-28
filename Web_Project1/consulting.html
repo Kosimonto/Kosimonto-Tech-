@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Personality Quiz -🐾Pet-Wise</title>
+  <link rel="stylesheet" href="animal.css">
+</head>
+<body>
+<header>
+    		<h1>🐾Pet-Wise</h1>
+		<nav>
+		 <a href="Logo">My_Biz_Logo</a>
+        <a href="index.html">HOME |</a>
+        <a href="animals.html">ANIMALS🐾</a><br>
+        <a href="consulting.html">CONSULT |</a>
+        <a href="contact.html.">Contact📞</a><br>
+		</nav>
+	</header>
+<main>
+  <h2>Find Your Perfect Pet</h2>
+  <form id="quizForm">
+    <label for="space">What type of living space do you have?</label><br>
+    <input type="radio" name="space" value="large"> Large House<br>
+    <input type="radio" name="space" value="medium"> Medium Apartment<br>
+    <input type="radio" name="space" value="small"> Small Flat<br>
+
+    <label for="time">How much time can you spend with your pet each day?</label><br>
+    <input type="radio" name="time" value="a_lot"> 4+ Hour's<br>
+    <input type="radio" name="time" value="some"> 1-3 Hour's<br>
+    <input type="radio" name="time" value="very_little"> Less than 1 hour<br>
+
+    <label for="cleaning">Are you okay with cleaning fur and smells?</label>
+    <input type="radio" name="cleaning" value="yes"> Yes<br>
+    <input type="radio" name="cleaning" value="no"> No<br>
+   <br>
+    <button type="button" onclick="getResult()">Get My Pet Match</button>
+  </form>
+
+  <div id="result"></div>
+  <a href="contact.html"><h6><i>Click To Contact Us!</i></h6></a>
+</main>
+<footer><br>
+    <p>&copy; 2025 Pet-Wise. All rights reserved.</p>
+</footer>
+
+<script>
+		function getResult(){
+			const space = document.querySelector('input[name="space"]: checked')?.value;
+			const time = document.querySelector('input[name="time"]: checked')?.value;
+			const cleaning = document.querySelector('input[name="cleaning"]: checked')?.value;
+
+			// For the form interactivity
+			let result = "Please answer all questions.";
+			if (space && time && cleaning){
+				if (space === "large" && time === "a_lot" && cleaning === "yes"){
+					result = "🐶 A Dog is perfect for you! Loyal, playful, and loves space.";
+				} else if (space !== "large" && time === "some" && cleaning === "no"){
+					result = "🐍 A Reptile suits you!. Low-maintenance and calm.";
+				} else if (cleaning === "yes" && time !== "very_little"){
+					result = "🐱 Consider  a Cat my bro!. Independent but affectionate pets.";
+				} else{
+					result = "🦅 A Bird may suit your lifestyle. you know, Fun and interactivity!.";
+				}
+			}
+
+			document.getElementById("result").innerText = result;
+		}
+	</script>
+</body>
+</html>
